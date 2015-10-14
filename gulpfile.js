@@ -8,7 +8,7 @@ var gulp = require("gulp"),
 
 var paths = {
 	sass: "sass/**/*.scss",
-	scripts: ["js/**/*.js", "src/**/*.js"]
+	scripts: "js/**/*.js"
 };
 
 var production = false;
@@ -49,16 +49,12 @@ gulp.task("scripts", function() {
 
 	if(!production){
 		pipeline = gulp.src(paths.scripts)
-			.pipe(babel({
-				ignore: "js/"
-			}))
+			.pipe(babel())
 		    .pipe(concat("main.min.js"))
 		    .pipe(gulp.dest("build/js"));
 	} else {
 		pipeline = gulp.src(paths.scripts)
-			.pipe(babel({
-				ignore: "js/**/*.js"
-			}))
+			.pipe(babel())
 	      	.pipe(uglify())
 	      	.pipe(concat("main.min.js"))
 		    .pipe(gulp.dest("build/js"));
