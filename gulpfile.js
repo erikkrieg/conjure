@@ -3,7 +3,6 @@ var gulp = require("gulp"),
 	uglify = require("gulp-uglify"),
 	babel = require("gulp-babel"),
   	connect = require("gulp-connect"),
-  	imagemin = require("gulp-imagemin"),
   	rimraf = require("gulp-rimraf"),
   	sass = require("gulp-sass");
 
